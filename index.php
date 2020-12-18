@@ -1,3 +1,7 @@
+<!-- Database -->
+<!-- <?php 
+require_once __DIR__ . '/partials/database.php';
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +17,6 @@
 </head>
 <body>
 
-    <!-- Database -->
-    <?php 
-    include __DIR__ . '/partials/database.php';
-    ?>
-
     <!-- Header -->
     <?php 
     include __DIR__ . '/partials/header.php';
@@ -25,10 +24,10 @@
 
     <!-- Main -->
     <?php 
-    include __DIR__ . '/partials/main.php';
+    include __DIR__ . '/partials/vue.php';
     ?>
 
     <!-- Js -->
-    <script> src="./dist/js/main.js"</script>
+    <script src="./dist/js/main.js"></script>
 </body>
 </html>

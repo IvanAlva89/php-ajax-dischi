@@ -14418,8 +14418,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//Import Vue
+ //Import Axios
 
 
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#app',
+  data: {
+    cds: [],
+    filter: 'all',
+    authors: [],
+    searchQuery: ''
+  },
+  created: function created() {
+    var _this = this;
+
+    var url = window.location.href + 'scripts/json-script.php';
+    this.getSinger(url);
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
+      _this.cds = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  },
+  methods: {
+    getSinger: function getSinger(data) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(data).then(function (response) {
+        for (var i = 0; i < response.data.length; i++) {
+          var newAuthor = response.data[i].author;
+
+          if (!_this2.authors.includes(newAuthor)) {
+            _this2.authors.push(newAuthor);
+          }
+        }
+
+        ;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    onAuthors: function onAuthors(event) {
+      var _this3 = this;
+
+      this.searchQuery = '?artista=' + event.target.value;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(window.location.href + 'scripts/json-script.php' + this.searchQuery).then(function (response) {
+        _this3.cds = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 

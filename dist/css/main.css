@@ -26,6 +26,10 @@ header .container .logo img {
 .main-section {
   background: #182d3d;
 }
+.main-section .search {
+  padding-top: 10px;
+  text-align: center;
+}
 .main-section .container {
   padding: 30px 90px;
   display: flex;
@@ -37,6 +41,7 @@ header .container .logo img {
   text-align: center;
   padding: 15px 30px;
   margin: 30px;
+  cursor: pointer;
 }
 .main-section .container .dischi img {
   width: 200px;
